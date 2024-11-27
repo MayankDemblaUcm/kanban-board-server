@@ -43,7 +43,8 @@ public class ColumnController {
     @PutMapping("/{id}")
     public ResponseEntity<ColumnDto> updateColumn(@PathVariable int boardId, @PathVariable int id,
                                                   @RequestBody ColumnDto updatedColumnDto) throws ColumnNotFoundException {
-        Optional<ColumnDto> updatedColumn = columnService.updateColumn(boardId, id, updatedColumnDto);
+        Optional<ColumnDto> updatedColumn = columnService.updateColumn(boardId, id++, updatedColumnDto);
+        System.out.println("Inside update column method.");
         return ResponseEntity.ok(updatedColumn.orElse(null));
     }
 
