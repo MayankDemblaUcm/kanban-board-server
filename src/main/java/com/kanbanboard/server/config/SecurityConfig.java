@@ -22,8 +22,9 @@ public class SecurityConfig {
         System.out.println("before matchers.....");
         http.authorizeHttpRequests((requests) -> requests
                         .requestMatchers( "/user/login").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         //.requestMatchers(HttpMethod.POST, "/**").authenticated()
-                        .requestMatchers( "/**").permitAll()
+//                        .requestMatchers( "/**").permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling().authenticationEntryPoint(userAuthenticationEntryPoint)
                 .and()
