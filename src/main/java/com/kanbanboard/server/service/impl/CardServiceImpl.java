@@ -59,7 +59,7 @@ public class CardServiceImpl implements CardService {
 
         CardEntity updatedCardEntity = modelMapper.map(updatedCardDto, CardEntity.class);
         updatedCardEntity.setBoardId(boardId);
-        updatedCardEntity.setColumnId(updatedCardDto.getColumnId());
+        updatedCardEntity.setColumnId(updatedCardDto.getColumnId() == 0 ? columnId : updatedCardDto.getColumnId());
         updatedCardEntity.setCardId(cardId);
         updatedCardEntity.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
         cardRepository.save(updatedCardEntity);
