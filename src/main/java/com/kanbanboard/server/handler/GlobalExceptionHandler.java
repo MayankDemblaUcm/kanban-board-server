@@ -1,7 +1,7 @@
-package com.kanbanboard.handler;
+package com.kanbanboard.server.handler;
 
-import com.kanbanboard.exception.BaseException;
-import com.kanbanboard.exception.UserNotFoundException;
+import com.kanbanboard.server.exception.BaseException;
+import com.kanbanboard.server.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
