@@ -50,5 +50,11 @@ public class UserController {
         UserDto newUser = userService.addUser(userDto);
         return ResponseEntity.ok(newUser);
     }
+    @PostMapping("/login")
+    public ResponseEntity<UserDto> login(@RequestBody UserDto userDto) {
+        UserDto user = userService.login(userDto);
+        user.setToken(userAuthenticationProvider.createToken(userDto.getEmail(),user.getUserId()));
+        return ResponseEntity.ok(user);
+    }
 
 }
