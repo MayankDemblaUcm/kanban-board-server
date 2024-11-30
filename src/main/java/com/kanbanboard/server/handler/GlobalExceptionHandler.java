@@ -21,5 +21,10 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(ex.getStatus()).body(ex.getMessage());
     }
 
-    
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleGenericException(Exception ex) {
+        System.out.println(ex);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred.");
+    }
+
 }
